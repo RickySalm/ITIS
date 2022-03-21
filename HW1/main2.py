@@ -13,17 +13,21 @@ def number_of_words(file):
     for i in file:
         count_word += len(i)
     print('кол-во слов:', count_word)
+    """
+    def count_words(file):
+        return sum([len(par.split()) for par in file])
+    """
 
 
 @open_file
 def average_word_length(file):
-    count_let = 0
+    count_letter = 0
     count_word = 0
     for i in file:
         for j in i:
             count_word += 1
-            count_let += len(j)
-    print('средняя длина слов', count_let / count_word)
+            count_letter += len(j)
+    print('средняя длина слов', count_letter / count_word)
 
 
 @open_file
@@ -39,7 +43,7 @@ def number_of_letters(file):
 
 @open_file
 def number_of_rows(file):
-    print('кол-во абзатцев', len(file))
+    print('кол-во абзацев', len(file))
 
 
 @open_file
@@ -104,12 +108,17 @@ def russian_update(file, sec_file):
     fin.close()
 
 
+def main():
+    file = 'book2.txt'
+    number_of_words(file)
+    average_word_length(file)
+    number_of_letters(file)
+    number_of_rows(file)
+    top_words_by_length(file)
+    frequent_letters(file)
+    replacing_words(file, "Анна Павловна", "anna pavlovna")
+    russian_update(file, 'book4.txt')
+
+
 if __name__ == '__main__':
-    number_of_words('book2.txt')
-    average_word_length('book2.txt')
-    number_of_letters('book2.txt')
-    number_of_rows('book2.txt')
-    top_words_by_length('book2.txt') 
-    frequent_letters('book2.txt')
-    replacing_words('book2.txt', "Анна Павловна", "anna pavlovna")
-    russian_update('book2.txt', 'book4.txt')
+    main()
