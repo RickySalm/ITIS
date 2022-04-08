@@ -44,8 +44,7 @@ class Game:
                     hit += 1
         if hit == self.quantity_ships:
             return 1
-        else:
-            return 0
+        return 0
 
     def hit_check(self, row_shot, col_shot):
         """
@@ -67,7 +66,6 @@ class Game:
 
 
 def mode_selection():
-    comment_exit = 'Для выхода напишите "quit"\n'
     """
     функция для выбора режима игры: можно задать свои аргументы или
     использовать стандартные
@@ -75,6 +73,7 @@ def mode_selection():
     Returns: экземпляр класса Game
 
     """
+    comment_exit = 'Для выхода напишите "quit"\n'
     mode = int(input('Выбор режима:\nПо умолчанию-1\nИзменить параметры-2\n'))
     if mode == 1:
         print(comment_exit)
@@ -103,8 +102,7 @@ def take_coordinate():
         return 'quit', 'quit'
     if len(col):
         return int(row), int(col[0])
-    else:
-        return -1, -1
+    return -1, -1
 
 
 def main():
